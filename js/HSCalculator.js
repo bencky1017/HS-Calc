@@ -1,10 +1,15 @@
 $(function(){
 	$('.calc').on('click',function(){
-		var curlvl=$('.sub_calc').eq(0).val()-0;/*字符串转换为数字*/
-		var curnum=$('.sub_calc').eq(1).val()-0;
-		var destlvl=$('.sub_calc').eq(2).val()-0;
-		var destnum=$('.sub_calc').eq(3).val()-0;
+		// 字符串转换为数字
+		var curlvl=$('.sub_calc').eq(0).val()-0;/*当前等级*/
+		var curnum=$('.sub_calc').eq(1).val()-0;/*当前数量*/
+		var destlvl=$('.sub_calc').eq(2).val()-0;/*目标等级*/
+		var destnum=$('.sub_calc').eq(3).val()-0;/*目标数量*/
+		var count=0;/*额外等级个数*/
+
+		// 所有等级小于20，且目标项不为空，当前小于目标
 		if (curlvl<20&destlvl<20&curlvl<destlvl|destlvl==''|destnum=='') {
+			// 当前不为空，目标有空 合成算法
 			if (curlvl!='') {
 				console.clear();
 				var temp_lvl=curlvl;
@@ -12,6 +17,7 @@ $(function(){
 				var temp_dev=compose(curnum).t;
 				var i=curlvl;
 				$('.result tr').remove();
+				$('.calculator tr span').html('<span style="color:#44D944;">合成算法</span>');
 				while(temp_num>0){
 					var result_td='<tr clsass="res_tr"><td>'+temp_lvl+'</td><td>'+temp_num+'</td><td>'+temp_dev+'</td><td></td></tr>';
 					$('.result').append(result_td);
@@ -21,6 +27,7 @@ $(function(){
 					temp_dev=(compose(temp_num).t);
 				}
 			}
+			// 当前不为空，目标不为空 分裂算法
 			if (destlvl!=''&destnum!='') {
 				console.clear();
 				var stoplvl=1;
@@ -28,6 +35,7 @@ $(function(){
 				var temp_dlvl=destlvl;
 				var temp_dnum=destnum;
 				$('.result tr').remove();
+				$('.calculator tr span').html('<span style="color:#ff0000;">分裂算法</span>');
 				while(temp_dlvl>=stoplvl){
 					var result_td='<tr clsass="res_tr"><td>'+temp_dlvl+'</td><td>'+temp_dnum+'</td><td>0</td><td>0</td></tr>';
 					$('.result').append(result_td);
@@ -40,7 +48,6 @@ $(function(){
 			$('.result').append('<tr><th colspan="4" style="color:red;">ERROR：等级设置出错！</th></tr>');
 		}
 	});
-	var count=0;
 	$('.add').on('click',function(){
 		count++;
 		var extra='<tr><td>额外'+(count)+'</td><td><input type="search" class="ext_s_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\\d]*/g,\'\')"></td><td><input type="search" class="ext_s_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\\d]*/g,\'\')"></td></tr>';

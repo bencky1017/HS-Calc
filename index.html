@@ -30,15 +30,15 @@
 				</tr>
 				<tr>
 					<td>目标</td>
-					<td><input type="search" class="sub_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\d]*/g,'')" value='8'></td>
-					<td><input type="search" class="sub_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\d]*/g,'')" value='3'></td>
+					<td><input type="search" class="sub_calc" placeholder="可空" onkeyup="value=value.replace(/[^\d]*/g,'')" value='8'></td>
+					<td><input type="search" class="sub_calc" placeholder="可空" onkeyup="value=value.replace(/[^\d]*/g,'')" value='3'></td>
 				</tr>
 			</table>
 			<table border="0">
 				<tr>
 					<td rowspan="2">额外</td>
-					<td rowspan="2"><input type="search" class="ext_sub_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\d]*/g,'')"></td>
-					<td rowspan="2"><input type="search" class="ext_sub_calc" placeholder="无数值" onkeyup="value=value.replace(/[^\d]*/g,'')"></td>
+					<td rowspan="2"><input type="search" class="ext_sub_calc" placeholder="可空" onkeyup="value=value.replace(/[^\d]*/g,'')"></td>
+					<td rowspan="2"><input type="search" class="ext_sub_calc" placeholder="可空" onkeyup="value=value.replace(/[^\d]*/g,'')"></td>
 					<td><input type="button" value="添加" class="add"></td>
 				</tr>
 				<tr>
@@ -47,12 +47,9 @@
 			</table>
 			<table border='1' class='calculator'>
 				<tbody>
-					<tr><th colspan="4"><span></span>计算结果</th></tr>
+					<tr><th colspan="4"><span>计算结果</span></th></tr>
 					<tr>
-						<td>等级</td>
-						<td>数量</td>
-						<td>不可合成</td>
-						<td>已有</td>
+						<td>等级</td><td>数量</td><td>不可合成</td><td>已有</td>
 					</tr>
 				</tbody>
 				<tbody class="result">
